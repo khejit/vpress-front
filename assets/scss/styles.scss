@@ -1,0 +1,9 @@
+@import "partials/vars";
+@import "partials/animations";
+@import "partials/transitions";
+@import "partials/util";
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+@import "general/layout";
