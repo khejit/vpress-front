@@ -8,6 +8,7 @@ if (process.env.URL && process.argv[2] === 'generate') {
 	url = new URL(process.env.URL);
 	axiosSettings = {
 		baseURL: url,
+		// mode: 'server'
 	};
 }
 

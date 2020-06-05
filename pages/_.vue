@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import canFindTemplate from '~/mixins/canFindTemplate';
 import {setPageData} from '~/utilities/helper';
 import { postMeta } from '~/utilities/yoastHelpers';
@@ -27,11 +28,14 @@ export default {
     }
   },
   computed: {
-    wp: () => this.$wp
+    ...mapState(['title', 'subtitle', 'featureImage'])
   },
   data: () => ({ post: {} }),
   head() {
     return this.post ? postMeta(this.post) : {};
   },
+  fetch({ store, params }) {
+    setPageData(store, { })
+  }
 };
 </script>

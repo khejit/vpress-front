@@ -27,7 +27,7 @@ export default {
   components: { PresentationalGrid },
   props: {
     // eslint-disable-next-line vue/require-prop-types
-    resource: { required: true },
+    resources: { required: true },
     theme: { type: String, default: 'blocks' },
     perRow: { type: Number, default: 3 },
     number: { type: Number, default: 0 },
@@ -44,27 +44,22 @@ export default {
     return {
       allLoaded: false,
       firstPageLoaded: false,
-      resources: [],
+      // resources: [],
       page: 0,
       allPostsLoaded: false,
       loading: false
     }
   },
-  computed: {
-    resourceController() {
-      return isString(this.resource) ? this.$cms[this.resource] : this.resource
-    }
-  },
   created() {
-    this.$eventBus.$on('route-changed', this.reset)
+    // this.$eventBus.$on('route-changed', this.reset)
   },
   destroyed() {
-    this.$eventBus.$off('route-changed', this.reset)
+    // this.$eventBus.$off('route-changed', this.reset)
   },
   methods: {
     reset() {
       console.log('resetting resource grid')
-      this.resourceController.reset()
+      // this.resource.reset()
       this.page = 0
       this.allLoaded = false
       this.firstPageLoaded = false
@@ -72,6 +67,8 @@ export default {
       this.resources = []
     },
     loadMore() {
+      return;
+
       if (this.loading) {
         return
       }
@@ -91,7 +88,7 @@ export default {
         this.allLoaded = true
       } else {
         try {
-          resources = await this.resourceController.getByPage(
+          resources = await this.resource.getByPage(
             this.page,
             this.resourceFilters
           )
@@ -111,7 +108,7 @@ export default {
     },
     async getPostsByNumber() {
       try {
-        const resources = await this.resourceController.getByNumber(
+        const resources = await this.resource.getByNumber(
           this.number,
           this.resourceFilters
         )

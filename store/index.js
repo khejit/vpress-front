@@ -18,6 +18,7 @@ export const actions = {
 		const initialisationActions = [
 			dispatch('navMenus/refreshAllNavMenus'),
 			dispatch('settings/refreshAllSettings'),
+			dispatch('posts/getAll'),
 		];
 		await Promise.all(initialisationActions);
 	},

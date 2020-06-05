@@ -4,6 +4,8 @@ import { modules, modulesSettings } from './config/modules';
 import {debug, wpUrl} from './utilities/helper';
 require('dotenv').config();
 
+// process.env.DEBUG = 'nuxt:*';
+
 export default {
 	debug,
 	mode: 'spa',

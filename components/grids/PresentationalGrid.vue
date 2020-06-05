@@ -4,7 +4,7 @@
     <div class="columns items is-multiline">
       <div
         v-for="(item, index) in itemsComputed"
-        :key="item.title ? item.title : index"
+        :key="(item.title && item.title.rendered) ? item.title.rendered : index"
         :class="`column items`"
         :style="`width: ${100 / perRow}%`"
       >

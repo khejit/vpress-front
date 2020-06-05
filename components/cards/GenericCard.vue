@@ -49,7 +49,7 @@ const imageDimensionDefault = '16x9'
 export default {
   props: {
     title: { type: String, default: '' },
-    image: { type: String, default: '' },
+    image: { type: String, default: 'https://via.placeholder.com/400x200' },
     link: { type: String, default: '' },
     imageDimensions: { type: String, default: imageDimensionDefault }
   },

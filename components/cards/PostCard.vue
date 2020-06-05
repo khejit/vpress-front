@@ -1,7 +1,6 @@
 <template>
   <generic-card
     :title="title"
-    :image="image"
     :link="link"
     :image-dimensions="
       $siteConfig.posts.imageDimensions ||
