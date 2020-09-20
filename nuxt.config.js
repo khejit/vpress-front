@@ -1,14 +1,15 @@
+require("dotenv").config();
+
 import axios from 'axios';
 import build from './config/build';
 import { modules, modulesSettings } from './config/modules';
 import {debug, wpUrl} from './utilities/helper';
-require('dotenv').config();
 
 // process.env.DEBUG = 'nuxt:*';
 
 export default {
 	debug,
-	mode: 'spa',
+	mode: 'universal',
 	env: {
 		nuxtDebug: debug,
 		nuxtFrontUrl: process.env.NUXTPRESS_FRONT_URL || 'localhost:3000',
@@ -42,9 +43,7 @@ export default {
 		'~/plugins/OptiImage',
 		'~/plugins/Disqus',
 		'~/plugins/EventBus',
-		'~/plugins/Components',
-		'~/plugins/VueLogger',
-		// { src: '~/plugins/wp-api-docker-connector', ssr: false },
+		'~/plugins/Components'
 	],
 	/*
 	 ** Nuxt.js dev-modules
